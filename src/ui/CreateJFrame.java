@@ -35,7 +35,7 @@ public class CreateJFrame extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
         txtModelName = new javax.swing.JTextField();
         lblModelName = new javax.swing.JLabel();
         lblManufacturyYear = new javax.swing.JLabel();
@@ -54,9 +54,9 @@ public class CreateJFrame extends javax.swing.JPanel {
         checkboxAvailable = new java.awt.Checkbox();
         lblAvailable = new javax.swing.JLabel();
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Create CAR");
+        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitle.setText("Create CAR");
 
         lblModelName.setText("Model Name");
 
@@ -100,7 +100,7 @@ public class CreateJFrame extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+            .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(404, 404, 404)
                 .addComponent(btnSave)
@@ -134,7 +134,7 @@ public class CreateJFrame extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtModelName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -222,7 +222,6 @@ public class CreateJFrame extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;
     private java.awt.Checkbox checkboxAvailable;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAvailable;
     private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblManufacturer;
@@ -231,6 +230,7 @@ public class CreateJFrame extends javax.swing.JPanel {
     private javax.swing.JLabel lblModelNumber;
     private javax.swing.JLabel lblSeatCapacity;
     private javax.swing.JLabel lblSerialNumber;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtManufacturer;
     private javax.swing.JTextField txtManufacturyYear;
