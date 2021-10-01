@@ -5,17 +5,25 @@
  */
 package ui;
 
+import model.CarHistory;
+
 /**
  *
  * @author Harshit
  */
 public class MainJFrame extends javax.swing.JFrame {
 
+    
+    CarHistory history;
+    
     /**
      * Creates new form MainJFrame
      */
     public MainJFrame() {
         initComponents();
+        
+        history = new CarHistory();
+        
     }
 
     /**
@@ -71,7 +79,7 @@ public class MainJFrame extends javax.swing.JFrame {
         workArea.setLayout(workAreaLayout);
         workAreaLayout.setHorizontalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 893, Short.MAX_VALUE)
+            .addGap(0, 884, Short.MAX_VALUE)
         );
         workAreaLayout.setVerticalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,7 +92,7 @@ public class MainJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+            .addComponent(splitPane)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,6 +104,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
+        
+        CreateJFrame createPanel = new CreateJFrame(history);
+        splitPane.setRightComponent(createPanel);
+        
     }//GEN-LAST:event_btnCreateActionPerformed
 
     /**

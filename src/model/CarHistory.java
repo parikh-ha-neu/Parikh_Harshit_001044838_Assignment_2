@@ -27,6 +27,13 @@ public class CarHistory {
         this.history = history;
     }
     
+    public Car addNewCar(){
+        
+        Car newCar = new Car();
+        history.add(newCar);
+        return newCar;
+    }
+    
     
     
 }
