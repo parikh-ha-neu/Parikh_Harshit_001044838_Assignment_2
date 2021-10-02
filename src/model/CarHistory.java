@@ -34,6 +34,11 @@ public class CarHistory {
         return newCar;
     }
     
+    public Car deleteCar(Car c){
+        history.remove(c);
+        return null;
+    }
+    
     
     
 }

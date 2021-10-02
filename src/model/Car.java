@@ -95,6 +95,10 @@ public class Car {
         this.lastUpdatedDate = lastUpdatedDate;
     }
 
+    @Override
+    public String toString(){
+        return modelName;
+    }
     
     
 }
