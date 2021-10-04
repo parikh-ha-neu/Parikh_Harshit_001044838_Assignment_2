@@ -48,7 +48,6 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtCity = new javax.swing.JTextField();
         lblManufacturer = new javax.swing.JLabel();
         lblSeatCapacity = new javax.swing.JLabel();
-        checkboxAvailable = new java.awt.Checkbox();
         lblSerialNumber = new javax.swing.JLabel();
         lblAvailable = new javax.swing.JLabel();
         lblModelNumber = new javax.swing.JLabel();
@@ -60,6 +59,8 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtSerialNumber = new javax.swing.JTextField();
         lblModelName = new javax.swing.JLabel();
         txtModelNumber = new javax.swing.JTextField();
+        checkboxAvailable = new javax.swing.JCheckBox();
+        btnSave = new javax.swing.JButton();
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -73,7 +74,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Model Name", "Model Number", "Manufactury Year", "Car Manufacturer", "Seat Capacity", "Serial Number", "City", "Available", "Updated Date"
+                "Model Name", "Model Number", "Manufactory Year", "Car Manufacturer", "Seat Capacity", "Serial Number", "City", "Available", "Updated Date"
             }
         ) {
             Class[] types = new Class [] {
@@ -119,8 +120,6 @@ public class ViewJPanel extends javax.swing.JPanel {
 
         lblSeatCapacity.setText("Seat Capacity");
 
-        checkboxAvailable.setMinimumSize(new java.awt.Dimension(112, 20));
-
         lblSerialNumber.setText("Serial Number");
 
         lblAvailable.setText("Available");
@@ -136,6 +135,8 @@ public class ViewJPanel extends javax.swing.JPanel {
         });
 
         lblModelName.setText("Model Name");
+
+        btnSave.setText("Save");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -167,7 +168,6 @@ public class ViewJPanel extends javax.swing.JPanel {
                     .addComponent(lblAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(checkboxAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(txtModelName, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(txtManufacturer, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -175,12 +175,17 @@ public class ViewJPanel extends javax.swing.JPanel {
                         .addComponent(txtSeatCapacity, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(txtSerialNumber, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(txtModelNumber, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtCity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtCity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(checkboxAvailable))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(48, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 861, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(85, 85, 85))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(301, 301, 301)
+                .addComponent(btnSave)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,15 +227,39 @@ public class ViewJPanel extends javax.swing.JPanel {
                     .addComponent(lblCity, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
                     .addComponent(txtCity))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(checkboxAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAvailable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(129, 129, 129))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAvailable, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                    .addComponent(checkboxAvailable))
+                .addGap(18, 18, 18)
+                .addComponent(btnSave)
+                .addGap(88, 88, 88))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
+        int selectedRowIndex = tblCar.getSelectedRow();
+        
+        if (selectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row to delete.");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tblCar.getModel();
+        Car selectedCar = (Car)model.getValueAt(selectedRowIndex, 0);
+        
+        txtModelName.setText(selectedCar.getModelName());
+        txtModelNumber.setText(selectedCar.getModelNumber());
+        txtManufacturyYear.setText(String.valueOf(selectedCar.getManufactureryYear()));
+        txtManufacturer.setText(selectedCar.getCarManufacturer());
+        txtSeatCapacity.setText(String.valueOf(selectedCar.getSeatCapacity()));
+        txtSerialNumber.setText(selectedCar.getSerialNumber());
+        txtCity.setText(selectedCar.getCity());
+        checkboxAvailable.setSelected(selectedCar.isAvailable());
+        
+        
+        
+        
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void txtCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCityActionPerformed
@@ -259,14 +288,23 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         populateTable();
         
+        txtModelName.setText("");
+        txtModelNumber.setText("");
+        txtManufacturyYear.setText(String.valueOf(""));
+        txtManufacturer.setText("");
+        txtSeatCapacity.setText(String.valueOf(""));
+        txtSerialNumber.setText("");
+        txtCity.setText("");
+        
         
     }//GEN-LAST:event_btnDeleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnSave;
     private javax.swing.JButton btnView;
-    private java.awt.Checkbox checkboxAvailable;
+    private javax.swing.JCheckBox checkboxAvailable;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAvailable;
     private javax.swing.JLabel lblCity;
@@ -303,6 +341,7 @@ public class ViewJPanel extends javax.swing.JPanel {
             row[4] = c.getSeatCapacity();
             row[5] = c.getSerialNumber();
             row[6] = c.getCity();
+            row[7] = c.isAvailable();
             row[8] = new Date();
             
             

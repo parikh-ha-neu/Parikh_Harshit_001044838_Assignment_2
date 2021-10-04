@@ -5,7 +5,11 @@
  */
 package ui;
 
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import model.Car;
 import model.CarHistory;
@@ -20,6 +24,20 @@ public class CreateJFrame extends javax.swing.JPanel {
      * Creates new form CreateJFrame
      */
     CarHistory history;
+    
+    
+    public boolean isSubmit_ModelName = false;
+    public boolean isSubmit_Manufacturer = false;
+    public boolean isSubmit_ManufactoryYear = false;
+    public boolean isSubmit_SeatCapacity = false;
+    public boolean isSubmit_SerialNumber = false;
+    public boolean isSubmit_ModelNumber = false;
+    public boolean isSubmit_City = false;
+    
+    public boolean available = false;
+    
+    
+    
     
     public CreateJFrame(CarHistory history) {
         initComponents();
@@ -45,22 +63,29 @@ public class CreateJFrame extends javax.swing.JPanel {
         lblModelNumber = new javax.swing.JLabel();
         lblCity = new javax.swing.JLabel();
         txtManufacturer = new javax.swing.JTextField();
-        txtManufacturyYear = new javax.swing.JTextField();
+        txtManufactoryYear = new javax.swing.JTextField();
         txtSeatCapacity = new javax.swing.JTextField();
         txtSerialNumber = new javax.swing.JTextField();
         txtModelNumber = new javax.swing.JTextField();
         txtCity = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
-        checkboxAvailable = new java.awt.Checkbox();
         lblAvailable = new javax.swing.JLabel();
+        btnAutofill = new javax.swing.JButton();
+        checkboxAvailable = new javax.swing.JCheckBox();
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Create CAR");
 
+        txtModelName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtModelNameKeyReleased(evt);
+            }
+        });
+
         lblModelName.setText("Model Name");
 
-        lblManufacturyYear.setText("Manufactury Year");
+        lblManufacturyYear.setText("Manufactory Year");
 
         lblManufacturer.setText("Manufacturer");
 
@@ -77,10 +102,44 @@ public class CreateJFrame extends javax.swing.JPanel {
                 txtManufacturerActionPerformed(evt);
             }
         });
+        txtManufacturer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtManufacturerKeyReleased(evt);
+            }
+        });
+
+        txtManufactoryYear.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtManufactoryYearKeyReleased(evt);
+            }
+        });
+
+        txtSeatCapacity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSeatCapacityKeyReleased(evt);
+            }
+        });
+
+        txtSerialNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSerialNumberKeyReleased(evt);
+            }
+        });
+
+        txtModelNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtModelNumberKeyReleased(evt);
+            }
+        });
 
         txtCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCityActionPerformed(evt);
+            }
+        });
+        txtCity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCityKeyReleased(evt);
             }
         });
 
@@ -92,19 +151,21 @@ public class CreateJFrame extends javax.swing.JPanel {
             }
         });
 
-        checkboxAvailable.setMinimumSize(new java.awt.Dimension(112, 20));
-
         lblAvailable.setText("Available");
+
+        btnAutofill.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnAutofill.setText("Autofill");
+        btnAutofill.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAutofillActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(404, 404, 404)
-                .addComponent(btnSave)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,16 +180,23 @@ public class CreateJFrame extends javax.swing.JPanel {
                     .addComponent(lblAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(checkboxAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtModelName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                        .addComponent(txtManufacturer, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtManufacturyYear, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtSeatCapacity, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtSerialNumber, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtModelNumber, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtCity, javax.swing.GroupLayout.Alignment.TRAILING)))
-                .addGap(430, 430, 430))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtModelName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                            .addComponent(txtManufacturer, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtManufactoryYear, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtSeatCapacity, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtSerialNumber, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtModelNumber, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtCity, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(83, 83, 83)
+                        .addComponent(btnAutofill))
+                    .addComponent(checkboxAvailable))
+                .addGap(276, 276, 276))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(401, 401, 401)
+                .addComponent(btnSave)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,8 +213,9 @@ public class CreateJFrame extends javax.swing.JPanel {
                     .addComponent(lblManufacturer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtManufacturyYear)
-                    .addComponent(lblManufacturyYear, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE))
+                    .addComponent(txtManufactoryYear)
+                    .addComponent(lblManufacturyYear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAutofill))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSeatCapacity)
@@ -164,50 +233,90 @@ public class CreateJFrame extends javax.swing.JPanel {
                     .addComponent(lblCity, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
                     .addComponent(txtCity))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(checkboxAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAvailable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAvailable, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                    .addComponent(checkboxAvailable))
+                .addGap(18, 18, 18)
                 .addComponent(btnSave)
-                .addGap(395, 395, 395))
+                .addGap(411, 411, 411))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         
-        String modelName = txtModelName.getText();
-        String modelNumber = txtModelNumber.getText();
-        short manufactureryYear = Short.parseShort(txtManufacturyYear.getText());
-//        boolean available = Boolean.parseBoolean();
-        String carManufacturer = txtManufacturer.getText();
-        byte seatCapacity = Byte.parseByte(txtSeatCapacity.getText());
-        String serialNumber = txtSerialNumber.getText();
-        String city = txtCity.getText();
-        Date lastUpdatedDate = new Date();
-        
-        Car c = history.addNewCar();
-        
-        c.setModelName(modelName);
-        c.setModelNumber(modelNumber);
-        c.setManufactureryYear(manufactureryYear);
-//        c.setAvailable(true);
-        c.setCarManufacturer(carManufacturer);
-        c.setSeatCapacity(seatCapacity);
-        c.setSerialNumber(serialNumber);
-        c.setCity(city);
-        c.setLastUpdatedDate(lastUpdatedDate);
-        
-        JOptionPane.showMessageDialog(this, "New Car Added.");
-        
-        txtModelName.setText("");
-        txtModelNumber.setText("");
-        txtManufacturyYear.setText("");
-        txtManufacturer.setText("");
-        txtSeatCapacity.setText("");
-        txtSerialNumber.setText("");
-        txtCity.setText("");
-        
+        if(isSubmit_ModelName == false){
+            JOptionPane.showMessageDialog(this, "Please enter a valid Model Name.");
+        }
+        else if(isSubmit_Manufacturer == false){
+            JOptionPane.showMessageDialog(this, "Please enter a valid Manufacturer.");
+        }
+        else if(isSubmit_ManufactoryYear == false){
+            JOptionPane.showMessageDialog(this, "Please enter a valid Manufactory Year.");
+        }
+        else if(isSubmit_SeatCapacity == false){
+            JOptionPane.showMessageDialog(this, "Please enter a valid Seat Capacity.");
+        }
+        else if(isSubmit_SerialNumber == false){
+            JOptionPane.showMessageDialog(this, "Please enter a valid Serial Number.");
+        }
+        else if(isSubmit_ModelNumber == false){
+            JOptionPane.showMessageDialog(this, "Please enter a valid Model Number.");
+        }
+        else if(isSubmit_City == false){
+            JOptionPane.showMessageDialog(this, "Please enter a valid City.");
+        }
+        else{
+
+            String modelName = txtModelName.getText();
+            String modelNumber = txtModelNumber.getText();
+            short manufactureryYear = Short.parseShort(txtManufactoryYear.getText());
+            
+    //        boolean available = Boolean.parseBoolean();
+            String carManufacturer = txtManufacturer.getText();
+            byte seatCapacity = Byte.parseByte(txtSeatCapacity.getText());
+            String serialNumber = txtSerialNumber.getText();
+            String city = txtCity.getText();
+            Date lastUpdatedDate = new Date();
+
+            Car c = history.addNewCar();
+
+            c.setModelName(modelName);
+            c.setModelNumber(modelNumber);
+            c.setManufactureryYear(manufactureryYear);
+            if(checkboxAvailable.isSelected()){
+                c.setAvailable(true);
+            }
+            else{
+                c.setAvailable(false);
+            }
+            c.setCarManufacturer(carManufacturer);
+            c.setSeatCapacity(seatCapacity);
+            c.setSerialNumber(serialNumber);
+            c.setCity(city);
+            c.setLastUpdatedDate(lastUpdatedDate);
+
+            JOptionPane.showMessageDialog(this, "New Car Added.");
+
+            txtModelName.setText("");
+            txtModelNumber.setText("");
+            txtManufactoryYear.setText("");
+            txtManufacturer.setText("");
+            txtSeatCapacity.setText("");
+            txtSerialNumber.setText("");
+            txtCity.setText("");
+            checkboxAvailable.setSelected(false);
+            
+            txtModelName.setBackground(Color.white);
+            txtModelNumber.setBackground(Color.white);
+            txtManufactoryYear.setBackground(Color.white);
+            txtManufacturer.setBackground(Color.white);
+            txtSeatCapacity.setBackground(Color.white);
+            txtSerialNumber.setBackground(Color.white);
+            txtCity.setBackground(Color.white);
+            
+            
+        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCityActionPerformed
@@ -218,10 +327,153 @@ public class CreateJFrame extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtManufacturerActionPerformed
 
+    private void txtModelNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtModelNameKeyReleased
+        // TODO add your handling code here:
+        String ModelName = txtModelName.getText();
+        txtModelName.setBackground(Color.red);
+        if(ModelName.length() > 0){
+            txtModelName.setBackground(Color.green);
+            this.isSubmit_ModelName = true;
+        }
+        else{
+            txtModelName.setBackground(Color.red);
+            this.isSubmit_ModelName = false;
+        }
+    }//GEN-LAST:event_txtModelNameKeyReleased
+
+    private void txtManufacturerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtManufacturerKeyReleased
+        // TODO add your handling code here:
+        String Manufacturer = txtManufacturer.getText();
+        if(Manufacturer.length() > 0){
+            txtManufacturer.setBackground(Color.green);
+            this.isSubmit_Manufacturer = true;
+        }
+        else{
+            txtManufacturer.setBackground(Color.red);
+            this.isSubmit_Manufacturer = false;
+        }
+    }//GEN-LAST:event_txtManufacturerKeyReleased
+
+    private void txtManufactoryYearKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtManufactoryYearKeyReleased
+        // TODO add your handling code here:
+        String ManufactoryYear = txtManufactoryYear.getText();
+        if(ManufactoryYear.matches("^[0-9]*$") && ManufactoryYear.length() == 4)
+        {
+//            Change background colour and set the boolean variable as true.
+            txtManufactoryYear.setBackground(Color.green);
+            this.isSubmit_ManufactoryYear = true;
+        }
+        else{
+//            Change background colour and set the boolean variable as false.
+            txtManufactoryYear.setBackground(Color.red);
+            this.isSubmit_ManufactoryYear = false;
+        }
+    }//GEN-LAST:event_txtManufactoryYearKeyReleased
+
+    private void txtSeatCapacityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSeatCapacityKeyReleased
+        // TODO add your handling code here:
+        String SeatCapacity = txtSeatCapacity.getText();
+        if(SeatCapacity.matches("^[0-9]*$") && SeatCapacity.length() >= 1)
+        {
+//            Change background colour and set the boolean variable as true.
+            txtSeatCapacity.setBackground(Color.green);
+            this.isSubmit_SeatCapacity = true;
+        }
+        else{
+//            Change background colour and set the boolean variable as false.
+            txtSeatCapacity.setBackground(Color.red);
+            this.isSubmit_SeatCapacity = false;
+        }
+    }//GEN-LAST:event_txtSeatCapacityKeyReleased
+
+    private void txtSerialNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSerialNumberKeyReleased
+        // TODO add your handling code here:
+        String SerialNumber = txtSerialNumber.getText();
+        if(SerialNumber.length() > 0){
+            txtSerialNumber.setBackground(Color.green);
+            this.isSubmit_SerialNumber = true;
+        }
+        else{
+            txtSerialNumber.setBackground(Color.red);
+            this.isSubmit_SerialNumber = false;
+        }
+    }//GEN-LAST:event_txtSerialNumberKeyReleased
+
+    private void txtModelNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtModelNumberKeyReleased
+        // TODO add your handling code here:
+        String ModelNumber = txtModelNumber.getText();
+        if(ModelNumber.length() > 0){
+            txtModelNumber.setBackground(Color.green);
+            this.isSubmit_ModelNumber = true;
+        }
+        else{
+            txtModelNumber.setBackground(Color.red);
+            this.isSubmit_ModelNumber = false;
+        }
+    }//GEN-LAST:event_txtModelNumberKeyReleased
+
+    private void txtCityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCityKeyReleased
+        // TODO add your handling code here:
+        String City = txtCity.getText();
+        if(City.length() > 0){
+            txtCity.setBackground(Color.green);
+            this.isSubmit_City = true;
+        }
+        else{
+            txtCity.setBackground(Color.red);
+            this.isSubmit_City = false;
+        }
+    }//GEN-LAST:event_txtCityKeyReleased
+
+    private void btnAutofillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAutofillActionPerformed
+        // TODO add your handling code here:
+        
+        ArrayList<String> ModelName = new ArrayList<>();
+        Collections.addAll(ModelName, "Figo", "Ecosport", "S-class", "X7", "E-tron", "X");       
+        
+        ArrayList<String> ModelNumber = new ArrayList<>();
+        Collections.addAll(ModelNumber, "297845382", "131216642", "238029493", "638269399", "938572942", "847264829");
+        
+        ArrayList<String> ManufactoryYear = new ArrayList<>();
+        Collections.addAll(ManufactoryYear, "2015", "2018", "2012", "2014", "2017", "2019");
+        
+        ArrayList<String> Manufacterer = new ArrayList<>();
+        Collections.addAll(Manufacterer, "Ford", "Ford", "Mercedez Benz", "BMW", "Audi", "Tesla");
+        
+        ArrayList<String> SeatCapacity = new ArrayList<>();
+        Collections.addAll(SeatCapacity, "5", "6", "4", "4", "5", "2");
+        
+        ArrayList<String> SerialNumber = new ArrayList<>();
+        Collections.addAll(SerialNumber, "BKL2926069", "ACD2236823", "MCD2839831", "BDW2394857", "ACB9283764", "BKT2938457");
+        
+        ArrayList<String> City = new ArrayList<>();
+        Collections.addAll(City, "Mumbai", "Mumbai", "Russia", "Germany", "Italy", "Boston");    
+        
+        ArrayList<Boolean> Available = new ArrayList<>();
+        Collections.addAll(Available, true, false, true, true, false, true);
+                
+        for (int i = 0; i<ModelName.size(); i++){    
+            Car c = history.addNewCar();
+            c.setModelName(ModelName.get(i));
+            c.setModelNumber(ModelNumber.get(i));
+            c.setManufactureryYear(Short.parseShort(ManufactoryYear.get(i)));
+            c.setAvailable(Available.get(i));
+            c.setCarManufacturer(Manufacterer.get(i));
+            c.setSeatCapacity(Byte.parseByte(SeatCapacity.get(i)));
+            c.setSerialNumber(SerialNumber.get(i));
+            c.setCity(City.get(i));
+            c.setLastUpdatedDate(new Date());   
+        }
+        
+        JOptionPane.showMessageDialog(this, "6 Cars Added.");
+        
+    }//GEN-LAST:event_btnAutofillActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAutofill;
     private javax.swing.JButton btnSave;
-    private java.awt.Checkbox checkboxAvailable;
+    private javax.swing.JCheckBox checkboxAvailable;
     private javax.swing.JLabel lblAvailable;
     private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblManufacturer;
@@ -232,8 +484,8 @@ public class CreateJFrame extends javax.swing.JPanel {
     private javax.swing.JLabel lblSerialNumber;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTextField txtCity;
+    private javax.swing.JTextField txtManufactoryYear;
     private javax.swing.JTextField txtManufacturer;
-    private javax.swing.JTextField txtManufacturyYear;
     private javax.swing.JTextField txtModelName;
     private javax.swing.JTextField txtModelNumber;
     private javax.swing.JTextField txtSeatCapacity;
