@@ -110,7 +110,17 @@ public class MainJFrame extends javax.swing.JFrame {
 
         splitPane.setRightComponent(workArea);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Harshit\\Desktop\\car6.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("file:/C:/Users/Harshit/Downloads/car1 (1).jpg")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
         splitPane.setRightComponent(jLabel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
