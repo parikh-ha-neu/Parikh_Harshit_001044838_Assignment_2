@@ -38,6 +38,11 @@
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="controlPanel">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="d7" green="f7" red="f6" type="rgb"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
               <JSplitPaneConstraints position="left"/>
@@ -52,7 +57,6 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnCreate" max="32767" attributes="0"/>
                           <Component id="btnView" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnView1" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -65,9 +69,7 @@
                       <Component id="btnCreate" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnView" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnView1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="585" max="32767" attributes="0"/>
+                      <EmptySpace pref="626" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -75,6 +77,9 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="btnCreate">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="55" green="54" red="ea" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Create CAR"/>
               </Properties>
               <Events>
@@ -83,18 +88,13 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnView">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="55" green="54" red="ea" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="View CAR"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnView1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Questions"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnView1ActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

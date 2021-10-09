@@ -39,13 +39,15 @@ public class MainJFrame extends javax.swing.JFrame {
         controlPanel = new javax.swing.JPanel();
         btnCreate = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
-        btnView1 = new javax.swing.JButton();
         workArea = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        controlPanel.setBackground(new java.awt.Color(246, 247, 215));
+
+        btnCreate.setBackground(new java.awt.Color(234, 84, 85));
         btnCreate.setText("Create CAR");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,17 +55,11 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnView.setBackground(new java.awt.Color(234, 84, 85));
         btnView.setText("View CAR");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewActionPerformed(evt);
-            }
-        });
-
-        btnView1.setText("Questions");
-        btnView1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnView1ActionPerformed(evt);
             }
         });
 
@@ -75,8 +71,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnView1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         controlPanelLayout.setVerticalGroup(
@@ -86,9 +81,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(btnCreate)
                 .addGap(18, 18, 18)
                 .addComponent(btnView)
-                .addGap(18, 18, 18)
-                .addComponent(btnView1)
-                .addContainerGap(585, Short.MAX_VALUE))
+                .addContainerGap(626, Short.MAX_VALUE))
         );
 
         splitPane.setLeftComponent(controlPanel);
@@ -148,12 +141,6 @@ public class MainJFrame extends javax.swing.JFrame {
         splitPane.setRightComponent(viewPanel);
     }//GEN-LAST:event_btnViewActionPerformed
 
-    private void btnView1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnView1ActionPerformed
-        // TODO add your handling code here:
-        AnswerJFrame answerPanel = new AnswerJFrame(history);
-        splitPane.setRightComponent(answerPanel);
-    }//GEN-LAST:event_btnView1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -192,7 +179,6 @@ public class MainJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnView;
-    private javax.swing.JButton btnView1;
     private javax.swing.JPanel controlPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

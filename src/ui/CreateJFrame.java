@@ -71,7 +71,7 @@ public class CreateJFrame extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(44, 62, 80));
+        setBackground(new java.awt.Color(60, 86, 112));
 
         txtModelName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -149,6 +149,9 @@ public class CreateJFrame extends javax.swing.JPanel {
         btnSave.setBackground(new java.awt.Color(34, 167, 240));
         btnSave.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnSave.setText("Save");
+        btnSave.setMaximumSize(new java.awt.Dimension(71, 25));
+        btnSave.setMinimumSize(new java.awt.Dimension(71, 25));
+        btnSave.setPreferredSize(new java.awt.Dimension(71, 25));
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
@@ -159,11 +162,17 @@ public class CreateJFrame extends javax.swing.JPanel {
         lblAvailable.setText("Available");
 
         btnAutofill.setBackground(new java.awt.Color(51, 255, 0));
-        btnAutofill.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnAutofill.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAutofill.setText("Autofill");
         btnAutofill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAutofillActionPerformed(evt);
+            }
+        });
+
+        checkboxAvailable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkboxAvailableActionPerformed(evt);
             }
         });
 
@@ -189,38 +198,35 @@ public class CreateJFrame extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(401, 401, 401)
-                .addComponent(btnSave)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(341, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lblModelName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblManufacturer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(lblManufacturyYear)
-                    .addComponent(lblSeatCapacity)
-                    .addComponent(lblSerialNumber)
-                    .addComponent(lblModelNumber)
-                    .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtModelName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                            .addComponent(txtManufacturer, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtManufactoryYear, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtSeatCapacity, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtSerialNumber, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtModelNumber, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtCity, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(83, 83, 83)
-                        .addComponent(btnAutofill))
-                    .addComponent(checkboxAvailable))
-                .addGap(276, 276, 276))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(341, 341, 341)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblManufacturyYear, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                    .addComponent(lblAvailable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAutofill, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lblModelName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblManufacturer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblSeatCapacity)
+                            .addComponent(lblSerialNumber)
+                            .addComponent(lblModelNumber)
+                            .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(checkboxAvailable)
+                    .addComponent(txtCity)
+                    .addComponent(txtModelNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                    .addComponent(txtSerialNumber)
+                    .addComponent(txtSeatCapacity)
+                    .addComponent(txtManufactoryYear)
+                    .addComponent(txtManufacturer)
+                    .addComponent(txtModelName)
+                    .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))
+                .addGap(440, 440, 440))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,8 +243,7 @@ public class CreateJFrame extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtManufactoryYear)
-                    .addComponent(lblManufacturyYear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAutofill))
+                    .addComponent(lblManufacturyYear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSeatCapacity)
@@ -260,7 +265,9 @@ public class CreateJFrame extends javax.swing.JPanel {
                     .addComponent(lblAvailable, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
                     .addComponent(checkboxAvailable))
                 .addGap(18, 18, 18)
-                .addComponent(btnSave)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAutofill, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                    .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(411, 411, 411))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -490,6 +497,10 @@ public class CreateJFrame extends javax.swing.JPanel {
             this.isSubmit_ModelNumber = false;
         }
     }//GEN-LAST:event_txtModelNumberKeyReleased
+
+    private void checkboxAvailableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkboxAvailableActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkboxAvailableActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

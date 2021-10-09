@@ -3,7 +3,7 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="50" green="3e" red="2c" type="rgb"/>
+      <Color blue="70" green="56" red="3c" type="rgb"/>
     </Property>
     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -24,47 +24,96 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="301" max="-2" attributes="0"/>
-              <Component id="btnSave" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="48" max="32767" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="861" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
-          </Group>
           <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="215" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="lblModelName" alignment="0" max="32767" attributes="0"/>
-                      <Component id="lblManufacturer" alignment="0" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lblModelName" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblManufacturer" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblManufacturyYear" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblSeatCapacity" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblSerialNumber" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblModelNumber" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCity" alignment="0" min="-2" pref="29" max="-2" attributes="0"/>
+                                  <Component id="lblAvailable" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtModelName" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txtManufacturer" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txtManufactoryYear" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txtSeatCapacity" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txtSerialNumber" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txtModelNumber" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txtCity" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Component id="checkboxAvailable" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                              <Component id="btnSave" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="jSeparator1" min="-2" pref="16" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLabel2" alignment="1" min="-2" pref="134" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtModelNameSearch" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="txtManufacturerSearch" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="txtManufactoryYearSearch" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="txtSeatCapacitySearch" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="txtSerialNumberSearch" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="txtModelNumberSearch" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="txtCitySearch" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="checkboxAvailableSearch" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblManufacturersUsed" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="lblCount" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtCount" min="-2" pref="31" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="lblAvailableCount" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtAvailableCount" min="-2" pref="28" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="lblUnavailableCount" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtUnavailableCount" min="-2" pref="29" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="txtManufacturersList" max="32767" attributes="0"/>
+                                  <Component id="lblCatalogLastUpdate" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtCatalogLastUpdate" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="btnSearch" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
-                  <Component id="lblManufacturyYear" alignment="0" max="32767" attributes="0"/>
-                  <Component id="lblSeatCapacity" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblSerialNumber" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblModelNumber" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblCity" alignment="0" min="-2" pref="29" max="-2" attributes="0"/>
-                  <Component id="lblAvailable" alignment="0" max="32767" attributes="0"/>
-                  <Component id="lblSearch" alignment="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jScrollPane1" min="-2" pref="861" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="741" max="-2" attributes="0"/>
+                          <Component id="btnDelete" min="-2" pref="120" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="txtSearch" max="32767" attributes="0"/>
-                  <Component id="txtModelName" alignment="1" max="32767" attributes="0"/>
-                  <Component id="txtManufacturer" alignment="1" max="32767" attributes="0"/>
-                  <Component id="txtManufactoryYear" alignment="1" max="32767" attributes="0"/>
-                  <Component id="txtSeatCapacity" alignment="1" max="32767" attributes="0"/>
-                  <Component id="txtSerialNumber" alignment="1" max="32767" attributes="0"/>
-                  <Component id="txtModelNumber" alignment="1" max="32767" attributes="0"/>
-                  <Component id="txtCity" alignment="0" pref="120" max="32767" attributes="0"/>
-                  <Component id="checkboxAvailable" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="btnDelete" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="188" max="-2" attributes="0"/>
+              <EmptySpace pref="83" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -72,57 +121,117 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Component id="btnDelete" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="234" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblSearch" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jSeparator1" min="-2" pref="309" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblCount" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtCount" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblAvailableCount" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtAvailableCount" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblUnavailableCount" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtUnavailableCount" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="txtModelNameSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblManufacturersUsed" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="txtManufacturerSearch" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                              <Component id="txtManufacturersList" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                      <Component id="txtManufactoryYearSearch" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                      <Component id="txtSeatCapacitySearch" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblCatalogLastUpdate" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                      <Component id="txtCatalogLastUpdate" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="txtSerialNumberSearch" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="txtModelNumberSearch" min="-2" pref="27" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="txtCitySearch" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="checkboxAvailableSearch" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                              <Component id="btnSearch" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtModelName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblModelName" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtManufacturer" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="lblManufacturer" alignment="3" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtManufactoryYear" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="lblManufacturyYear" alignment="3" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtSeatCapacity" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="lblSeatCapacity" alignment="3" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtSerialNumber" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="lblSerialNumber" alignment="3" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtModelNumber" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="lblModelNumber" alignment="3" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblCity" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="txtCity" alignment="3" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblAvailable" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="checkboxAvailable" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btnSave" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtModelName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblModelName" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtManufacturer" alignment="3" max="32767" attributes="0"/>
-                  <Component id="lblManufacturer" alignment="3" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtManufactoryYear" alignment="3" max="32767" attributes="0"/>
-                  <Component id="lblManufacturyYear" alignment="3" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtSeatCapacity" alignment="3" max="32767" attributes="0"/>
-                  <Component id="lblSeatCapacity" alignment="3" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtSerialNumber" alignment="3" max="32767" attributes="0"/>
-                  <Component id="lblSerialNumber" alignment="3" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtModelNumber" alignment="3" max="32767" attributes="0"/>
-                  <Component id="lblModelNumber" alignment="3" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblCity" alignment="3" pref="23" max="32767" attributes="0"/>
-                  <Component id="txtCity" alignment="3" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblAvailable" alignment="3" pref="24" max="32767" attributes="0"/>
-                  <Component id="checkboxAvailable" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnSave" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+              <EmptySpace min="125" pref="125" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -392,17 +501,185 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="lblSearch">
+    <Component class="javax.swing.JTextField" name="txtManufactoryYearSearch">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="99" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Manufactury Year"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtManufactoryYearSearchFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtManufactoryYearSearchFocusLost"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtSeatCapacitySearch">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="99" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Seat Capacity"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtSeatCapacitySearchFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtSeatCapacitySearchFocusLost"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtModelNameSearch">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="99" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Model Name"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtModelNameSearchFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtModelNameSearchFocusLost"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtCitySearch">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="99" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="City"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCitySearchFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCitySearchFocusLost"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCitySearchActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtSerialNumberSearch">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="99" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Serial Number"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtSerialNumberSearchFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtSerialNumberSearchFocusLost"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtModelNumberSearch">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="99" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Model Number"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtModelNumberSearchFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtModelNumberSearchFocusLost"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="checkboxAvailableSearch">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtManufacturerSearch">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="99" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Manufacturer Name"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtManufacturerSearchFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtManufacturerSearchFocusLost"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtManufacturerSearchActionPerformed"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtManufacturerSearchKeyReleased"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSearch">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="f0" green="a7" red="22" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Search"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCount">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Search:"/>
+        <Property name="text" type="java.lang.String" value="Count:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtSearch">
+    <Component class="javax.swing.JTextField" name="txtCount">
+    </Component>
+    <Component class="javax.swing.JSeparator" name="jSeparator1">
+      <Properties>
+        <Property name="orientation" type="int" value="1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="UPDATE"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="SEARCH"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAvailableCount">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Available Count"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtAvailableCount">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblUnavailableCount">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Unavailable Count"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtUnavailableCount">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblManufacturersUsed">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Manufacturers used by this Uber:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtManufacturersList">
       <Events>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchKeyPressed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtManufacturersListActionPerformed"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtManufacturersListKeyReleased"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCatalogLastUpdate">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Catalog was last updated on:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtCatalogLastUpdate">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCatalogLastUpdateActionPerformed"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCatalogLastUpdateKeyReleased"/>
       </Events>
     </Component>
   </SubComponents>
