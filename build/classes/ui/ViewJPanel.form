@@ -45,12 +45,12 @@
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="txtModelName" alignment="1" max="32767" attributes="0"/>
                                   <Component id="txtManufacturer" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="txtManufactoryYear" alignment="1" max="32767" attributes="0"/>
                                   <Component id="txtSeatCapacity" alignment="1" max="32767" attributes="0"/>
                                   <Component id="txtSerialNumber" alignment="1" max="32767" attributes="0"/>
                                   <Component id="txtModelNumber" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="txtCity" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Component id="txtCity" alignment="0" pref="120" max="32767" attributes="0"/>
                                   <Component id="checkboxAvailable" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtManufactoryYear" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -64,18 +64,20 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="jLabel2" alignment="1" min="-2" pref="134" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtModelNameSearch" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="txtManufacturerSearch" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="txtManufactoryYearSearch" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="txtSeatCapacitySearch" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="txtSerialNumberSearch" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="txtModelNumberSearch" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="txtCitySearch" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Component id="txtModelNameSearch" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txtManufacturerSearch" alignment="1" pref="195" max="32767" attributes="0"/>
+                                  <Component id="txtSerialNumberSearch" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txtModelNumberSearch" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txtCitySearch" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="comboBoxSeatCapacity" min="-2" pref="134" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="txtSeatCapacitySearch" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="checkboxAvailableSearch" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtManufactoryYearSearch" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -160,10 +162,13 @@
                                               <Component id="txtManufacturersList" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="txtManufactoryYearSearch" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                      <Component id="txtSeatCapacitySearch" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="txtSeatCapacitySearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="comboBoxSeatCapacity" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="lblCatalogLastUpdate" min="-2" max="-2" attributes="0"/>
@@ -196,9 +201,12 @@
                                   <Component id="lblManufacturer" alignment="3" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtManufactoryYear" alignment="3" max="32767" attributes="0"/>
-                                  <Component id="lblManufacturyYear" alignment="3" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblManufacturyYear" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="txtManufactoryYear" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -418,11 +426,6 @@
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtManufacturerKeyReleased"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtManufactoryYear">
-      <Events>
-        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtManufactoryYearKeyReleased"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JTextField" name="txtSeatCapacity">
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSeatCapacityKeyReleased"/>
@@ -501,24 +504,11 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JTextField" name="txtManufactoryYearSearch">
-      <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="99" green="99" red="99" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Manufactury Year"/>
-      </Properties>
-      <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtManufactoryYearSearchFocusGained"/>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtManufactoryYearSearchFocusLost"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JTextField" name="txtSeatCapacitySearch">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="99" green="99" red="99" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Seat Capacity"/>
       </Properties>
       <Events>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtSeatCapacitySearchFocusGained"/>
@@ -681,6 +671,32 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCatalogLastUpdateActionPerformed"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCatalogLastUpdateKeyReleased"/>
       </Events>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="txtManufactoryYear">
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="txtManufactoryYearSearch">
+    </Component>
+    <Component class="javax.swing.JComboBox" name="comboBoxSeatCapacity">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="8">
+            <StringItem index="0" value="Seat Capacity"/>
+            <StringItem index="1" value="Is less than"/>
+            <StringItem index="2" value="Is less than or equal to"/>
+            <StringItem index="3" value="Is equal to"/>
+            <StringItem index="4" value="Is not equal to"/>
+            <StringItem index="5" value="Is greater than"/>
+            <StringItem index="6" value="Is greater than or equal to"/>
+            <StringItem index="7" value="Is between"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxSeatCapacityActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

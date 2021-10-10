@@ -7,6 +7,7 @@ package ui;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import javax.swing.JCheckBox;
@@ -59,7 +60,6 @@ public class CreateJFrame extends javax.swing.JPanel {
         lblModelNumber = new javax.swing.JLabel();
         lblCity = new javax.swing.JLabel();
         txtManufacturer = new javax.swing.JTextField();
-        txtManufactoryYear = new javax.swing.JTextField();
         txtSeatCapacity = new javax.swing.JTextField();
         txtSerialNumber = new javax.swing.JTextField();
         txtModelNumber = new javax.swing.JTextField();
@@ -70,6 +70,7 @@ public class CreateJFrame extends javax.swing.JPanel {
         checkboxAvailable = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
+        txtManufactoryYear = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(60, 86, 112));
 
@@ -83,7 +84,7 @@ public class CreateJFrame extends javax.swing.JPanel {
         lblModelName.setText("Model Name");
 
         lblManufacturyYear.setForeground(new java.awt.Color(255, 255, 255));
-        lblManufacturyYear.setText("Manufactory Year");
+        lblManufacturyYear.setText("Manufactory Date");
 
         lblManufacturer.setForeground(new java.awt.Color(255, 255, 255));
         lblManufacturer.setText("Manufacturer");
@@ -108,12 +109,6 @@ public class CreateJFrame extends javax.swing.JPanel {
         txtManufacturer.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtManufacturerKeyReleased(evt);
-            }
-        });
-
-        txtManufactoryYear.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtManufactoryYearKeyReleased(evt);
             }
         });
 
@@ -222,10 +217,10 @@ public class CreateJFrame extends javax.swing.JPanel {
                     .addComponent(txtModelNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
                     .addComponent(txtSerialNumber)
                     .addComponent(txtSeatCapacity)
-                    .addComponent(txtManufactoryYear)
                     .addComponent(txtManufacturer)
                     .addComponent(txtModelName)
-                    .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))
+                    .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                    .addComponent(txtManufactoryYear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(440, 440, 440))
         );
         layout.setVerticalGroup(
@@ -241,9 +236,11 @@ public class CreateJFrame extends javax.swing.JPanel {
                     .addComponent(txtManufacturer)
                     .addComponent(lblManufacturer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtManufactoryYear)
-                    .addComponent(lblManufacturyYear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblManufacturyYear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtManufactoryYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSeatCapacity)
@@ -315,22 +312,6 @@ public class CreateJFrame extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtSeatCapacityKeyReleased
 
-    private void txtManufactoryYearKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtManufactoryYearKeyReleased
-        // TODO add your handling code here:
-        String ManufactoryYear = txtManufactoryYear.getText();
-        if(ManufactoryYear.matches("^[0-9]*$") && ManufactoryYear.length() == 4)
-        {
-            //            Change background colour and set the boolean variable as true.
-            txtManufactoryYear.setBackground(Color.green);
-            this.isSubmit_ManufactoryYear = true;
-        }
-        else{
-            //            Change background colour and set the boolean variable as false.
-            txtManufactoryYear.setBackground(Color.red);
-            this.isSubmit_ManufactoryYear = false;
-        }
-    }//GEN-LAST:event_txtManufactoryYearKeyReleased
-
     private void txtManufacturerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtManufacturerKeyReleased
         // TODO add your handling code here:
         String Manufacturer = txtManufacturer.getText();
@@ -350,6 +331,10 @@ public class CreateJFrame extends javax.swing.JPanel {
 
     private void btnAutofillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAutofillActionPerformed
         // TODO add your handling code here:
+        
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2018, 11, 31, 59, 59, 59);
+        Date happyNewYearDate = calendar.getTime();
 
         ArrayList<String> ModelName = new ArrayList<>();
         Collections.addAll(ModelName, "Figo", "Ecosport", "S-class", "X7", "E-tron", "X");
@@ -357,8 +342,8 @@ public class CreateJFrame extends javax.swing.JPanel {
         ArrayList<String> ModelNumber = new ArrayList<>();
         Collections.addAll(ModelNumber, "297845382", "131216642", "238029493", "638269399", "938572942", "847264829");
 
-        ArrayList<String> ManufactoryYear = new ArrayList<>();
-        Collections.addAll(ManufactoryYear, "2015", "2018", "2012", "2014", "2017", "2019");
+        ArrayList<Date> ManufactoryYear = new ArrayList<>();
+        Collections.addAll(ManufactoryYear, happyNewYearDate, happyNewYearDate, happyNewYearDate, happyNewYearDate, happyNewYearDate, happyNewYearDate);
 
         ArrayList<String> Manufacterer = new ArrayList<>();
         Collections.addAll(Manufacterer, "Ford", "Ford", "Mercedez Benz", "BMW", "Audi", "Tesla");
@@ -379,7 +364,7 @@ public class CreateJFrame extends javax.swing.JPanel {
             Car c = history.addNewCar();
             c.setModelName(ModelName.get(i));
             c.setModelNumber(ModelNumber.get(i));
-            c.setManufactureryYear(Short.parseShort(ManufactoryYear.get(i)));
+            c.setManufactureryYear(ManufactoryYear.get(i));
             c.setAvailable(Available.get(i));
             c.setCarManufacturer(Manufacterer.get(i));
             c.setSeatCapacity(Byte.parseByte(SeatCapacity.get(i)));
@@ -420,8 +405,7 @@ public class CreateJFrame extends javax.swing.JPanel {
 
             String modelName = txtModelName.getText();
             String modelNumber = txtModelNumber.getText();
-            short manufactureryYear = Short.parseShort(txtManufactoryYear.getText());
-
+            Date manufactureryYear = txtManufactoryYear.getDate();
             //        boolean available = Boolean.parseBoolean();
             String carManufacturer = txtManufacturer.getText();
             byte seatCapacity = Byte.parseByte(txtSeatCapacity.getText());
@@ -450,7 +434,7 @@ public class CreateJFrame extends javax.swing.JPanel {
 
             txtModelName.setText("");
             txtModelNumber.setText("");
-            txtManufactoryYear.setText("");
+//            txtManufactoryYear.setText("");
             txtManufacturer.setText("");
             txtSeatCapacity.setText("");
             txtSerialNumber.setText("");
@@ -518,7 +502,7 @@ public class CreateJFrame extends javax.swing.JPanel {
     private javax.swing.JLabel lblSerialNumber;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTextField txtCity;
-    private javax.swing.JTextField txtManufactoryYear;
+    private com.toedter.calendar.JDateChooser txtManufactoryYear;
     private javax.swing.JTextField txtManufacturer;
     private javax.swing.JTextField txtModelName;
     private javax.swing.JTextField txtModelNumber;

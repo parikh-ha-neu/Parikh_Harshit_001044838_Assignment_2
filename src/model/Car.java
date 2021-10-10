@@ -15,7 +15,7 @@ public class Car {
     
     private String modelName;
     private String modelNumber;
-    private short manufactureryYear;
+    private Date manufactureryYear;
     private boolean available;
     private String carManufacturer;
     private byte seatCapacity;
@@ -39,11 +39,11 @@ public class Car {
         this.modelNumber = modelNumber;
     }
 
-    public short getManufactureryYear() {
+    public Date getManufactureryYear() {
         return manufactureryYear;
     }
 
-    public void setManufactureryYear(short manufactureryYear) {
+    public void setManufactureryYear(Date manufactureryYear) {
         this.manufactureryYear = manufactureryYear;
     }
 

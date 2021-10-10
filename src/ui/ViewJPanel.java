@@ -6,6 +6,8 @@
 package ui;
 
 import java.awt.Color;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -64,7 +66,6 @@ public class ViewJPanel extends javax.swing.JPanel {
         lblModelNumber = new javax.swing.JLabel();
         lblCity = new javax.swing.JLabel();
         txtManufacturer = new javax.swing.JTextField();
-        txtManufactoryYear = new javax.swing.JTextField();
         txtSeatCapacity = new javax.swing.JTextField();
         txtModelName = new javax.swing.JTextField();
         txtSerialNumber = new javax.swing.JTextField();
@@ -74,7 +75,6 @@ public class ViewJPanel extends javax.swing.JPanel {
         btnSave = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
-        txtManufactoryYearSearch = new javax.swing.JTextField();
         txtSeatCapacitySearch = new javax.swing.JTextField();
         txtModelNameSearch = new javax.swing.JTextField();
         txtCitySearch = new javax.swing.JTextField();
@@ -96,6 +96,9 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtManufacturersList = new javax.swing.JTextField();
         lblCatalogLastUpdate = new javax.swing.JLabel();
         txtCatalogLastUpdate = new javax.swing.JTextField();
+        txtManufactoryYear = new com.toedter.calendar.JDateChooser();
+        txtManufactoryYearSearch = new com.toedter.calendar.JDateChooser();
+        comboBoxSeatCapacity = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(60, 86, 112));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -191,12 +194,6 @@ public class ViewJPanel extends javax.swing.JPanel {
             }
         });
 
-        txtManufactoryYear.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtManufactoryYearKeyReleased(evt);
-            }
-        });
-
         txtSeatCapacity.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtSeatCapacityKeyReleased(evt);
@@ -251,19 +248,7 @@ public class ViewJPanel extends javax.swing.JPanel {
             .addComponent(lblTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
         );
 
-        txtManufactoryYearSearch.setForeground(new java.awt.Color(153, 153, 153));
-        txtManufactoryYearSearch.setText("Manufactury Year");
-        txtManufactoryYearSearch.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtManufactoryYearSearchFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtManufactoryYearSearchFocusLost(evt);
-            }
-        });
-
-        txtSeatCapacitySearch.setForeground(new java.awt.Color(153, 153, 153));
-        txtSeatCapacitySearch.setText("Seat Capacity");
+        txtSeatCapacitySearch.setForeground(new java.awt.Color(255, 255, 255));
         txtSeatCapacitySearch.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtSeatCapacitySearchFocusGained(evt);
@@ -398,6 +383,13 @@ public class ViewJPanel extends javax.swing.JPanel {
             }
         });
 
+        comboBoxSeatCapacity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seat Capacity", "Is less than", "Is less than or equal to", "Is equal to", "Is not equal to", "Is greater than", "Is greater than or equal to", "Is between" }));
+        comboBoxSeatCapacity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxSeatCapacityActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -422,12 +414,12 @@ public class ViewJPanel extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtModelName, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtManufacturer, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtManufactoryYear, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtSeatCapacity, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtSerialNumber, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtModelNumber, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(checkboxAvailable)))
+                                    .addComponent(txtCity, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(checkboxAvailable)
+                                    .addComponent(txtManufactoryYear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(81, 81, 81)
                                 .addComponent(btnSave))
@@ -437,17 +429,19 @@ public class ViewJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtModelNameSearch, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtManufacturerSearch, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtManufactoryYearSearch, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtSeatCapacitySearch, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtSerialNumberSearch, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtModelNumberSearch, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtCitySearch, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(checkboxAvailableSearch, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(txtModelNameSearch)
+                                    .addComponent(txtManufacturerSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                                    .addComponent(txtSerialNumberSearch)
+                                    .addComponent(txtModelNumberSearch)
+                                    .addComponent(txtCitySearch, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(comboBoxSeatCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtSeatCapacitySearch))
+                                    .addComponent(checkboxAvailableSearch, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtManufactoryYearSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblManufacturersUsed)
@@ -514,10 +508,12 @@ public class ViewJPanel extends javax.swing.JPanel {
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(3, 3, 3)
                                                 .addComponent(txtManufacturersList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(11, 11, 11)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(txtManufactoryYearSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(11, 11, 11)
-                                        .addComponent(txtSeatCapacitySearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(txtSeatCapacitySearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(comboBoxSeatCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblCatalogLastUpdate)
                                         .addGap(3, 3, 3)
@@ -544,9 +540,11 @@ public class ViewJPanel extends javax.swing.JPanel {
                                     .addComponent(txtManufacturer)
                                     .addComponent(lblManufacturer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtManufactoryYear)
-                                    .addComponent(lblManufacturyYear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblManufacturyYear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(txtManufactoryYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtSeatCapacity)
@@ -601,12 +599,13 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         txtModelName.setText("");
         txtModelNumber.setText("");
-        txtManufactoryYear.setText(String.valueOf(""));
+        txtManufactoryYear.setDate(new Date(0));
         txtManufacturer.setText("");
         txtSeatCapacity.setText(String.valueOf(""));
         txtSerialNumber.setText("");
         txtCity.setText("");
         checkboxAvailable.setSelected(false);
+        
         
         
     }//GEN-LAST:event_btnDeleteActionPerformed
@@ -637,22 +636,6 @@ public class ViewJPanel extends javax.swing.JPanel {
             this.isSubmit_Manufacturer = false;
         }
     }//GEN-LAST:event_txtManufacturerKeyReleased
-
-    private void txtManufactoryYearKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtManufactoryYearKeyReleased
-        // TODO add your handling code here:
-        String ManufactoryYear = txtManufactoryYear.getText();
-        if(ManufactoryYear.matches("^[0-9]*$") && ManufactoryYear.length() == 4)
-        {
-//            Change background colour and set the boolean variable as true.
-            txtManufactoryYear.setBackground(Color.green);
-            this.isSubmit_ManufactoryYear = true;
-        }
-        else{
-//            Change background colour and set the boolean variable as false.
-            txtManufactoryYear.setBackground(Color.red);
-            this.isSubmit_ManufactoryYear = false;
-        }
-    }//GEN-LAST:event_txtManufactoryYearKeyReleased
 
     private void txtSeatCapacityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSeatCapacityKeyReleased
         // TODO add your handling code here:
@@ -749,7 +732,7 @@ public class ViewJPanel extends javax.swing.JPanel {
 
                 String modelName = txtModelName.getText();
                 String modelNumber = txtModelNumber.getText();
-                short manufactureryYear = Short.parseShort(txtManufactoryYear.getText());
+                Date manufactureryYear = txtManufactoryYear.getDate();
 
         //        boolean available = Boolean.parseBoolean();
                 String carManufacturer = txtManufacturer.getText();
@@ -781,7 +764,7 @@ public class ViewJPanel extends javax.swing.JPanel {
 
                 txtModelName.setText("");
                 txtModelNumber.setText("");
-                txtManufactoryYear.setText("");
+//                txtManufactoryYear.setText("");
                 txtManufacturer.setText("");
                 txtSeatCapacity.setText("");
                 txtSerialNumber.setText("");
@@ -816,7 +799,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         txtModelName.setText(selectedCar.getModelName());
         txtModelNumber.setText(selectedCar.getModelNumber());
-        txtManufactoryYear.setText(String.valueOf(selectedCar.getManufactureryYear()));
+        txtManufactoryYear.setDate(selectedCar.getManufactureryYear());
         txtManufacturer.setText(selectedCar.getCarManufacturer());
         txtSeatCapacity.setText(String.valueOf(selectedCar.getSeatCapacity()));
         txtSerialNumber.setText(selectedCar.getSerialNumber());
@@ -873,22 +856,6 @@ public class ViewJPanel extends javax.swing.JPanel {
             txtManufacturerSearch.setForeground(new Color(153,153,153));
         }
     }//GEN-LAST:event_txtManufacturerSearchFocusLost
-
-    private void txtManufactoryYearSearchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtManufactoryYearSearchFocusGained
-        // TODO add your handling code here:
-        if(txtManufactoryYearSearch.getText().equals("Manufactury Year")){
-            txtManufactoryYearSearch.setText("");
-            txtManufactoryYearSearch.setForeground(new Color(0,0,0));
-        }
-    }//GEN-LAST:event_txtManufactoryYearSearchFocusGained
-
-    private void txtManufactoryYearSearchFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtManufactoryYearSearchFocusLost
-        // TODO add your handling code here:
-        if(txtManufactoryYearSearch.getText().equals("")){
-            txtManufactoryYearSearch.setText("Manufactury Year");
-            txtManufactoryYearSearch.setForeground(new Color(153,153,153));
-        }
-    }//GEN-LAST:event_txtManufactoryYearSearchFocusLost
 
     private void txtSeatCapacitySearchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSeatCapacitySearchFocusGained
         // TODO add your handling code here:
@@ -970,6 +937,10 @@ public class ViewJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCatalogLastUpdateKeyReleased
 
+    private void comboBoxSeatCapacityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxSeatCapacityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxSeatCapacityActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
@@ -977,6 +948,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnSearch;
     private javax.swing.JCheckBox checkboxAvailable;
     private javax.swing.JCheckBox checkboxAvailableSearch;
+    private javax.swing.JComboBox<String> comboBoxSeatCapacity;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -1002,8 +974,8 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtCitySearch;
     private javax.swing.JTextField txtCount;
-    private javax.swing.JTextField txtManufactoryYear;
-    private javax.swing.JTextField txtManufactoryYearSearch;
+    private com.toedter.calendar.JDateChooser txtManufactoryYear;
+    private com.toedter.calendar.JDateChooser txtManufactoryYearSearch;
     private javax.swing.JTextField txtManufacturer;
     private javax.swing.JTextField txtManufacturerSearch;
     private javax.swing.JTextField txtManufacturersList;
@@ -1144,9 +1116,17 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         String modelName = txtModelNameSearch.getText().equals("Model Name") ? null :txtModelNameSearch.getText() ;
         String modelNumber = txtModelNumberSearch.getText().equals("Model Number") ? null :txtModelNumberSearch.getText();
-        String manufactureryYear = txtManufactoryYearSearch.getText().equals("Manufactury Year") ? null :txtManufactoryYearSearch.getText();
+        Date manufactureryYear;
+        boolean manufactureryYearFlag = true;
+        try {
+            manufactureryYear = txtManufactoryYearSearch.getDate().equals(null) ? new Date(0) :txtManufactoryYearSearch.getDate();
+        } catch (Exception e) {
+            manufactureryYearFlag = false;
+            manufactureryYear = new Date(0);
+        }
         String carManufacturer = txtManufacturerSearch.getText().equals("Manufacturer Name") ? null :txtManufacturerSearch.getText();
-        String seatCapacity = txtSeatCapacitySearch.getText().equals("Seat Capacity") ? null :txtSeatCapacitySearch.getText();
+        String seatCapacityChoice = comboBoxSeatCapacity.getSelectedItem().toString();
+        String seatCapacity = txtSeatCapacitySearch.getText();
         String serialNumber = txtSerialNumberSearch.getText().equals("Serial Number") ? null :txtSerialNumberSearch.getText();
         String city = txtCitySearch.getText().equals("City") ? null :txtCitySearch.getText();
         
@@ -1174,8 +1154,8 @@ public class ViewJPanel extends javax.swing.JPanel {
                 counterNotMatched = counterNotMatched + 1;
             }
             
-            if(manufactureryYear != null){
-                if (c.getManufactureryYear()== Short.parseShort(manufactureryYear)){
+            if(manufactureryYearFlag){
+                if (c.getManufactureryYear().compareTo(manufactureryYear) == 0){
                    counterMatched = counterMatched + 1;
                 }
             }
@@ -1184,9 +1164,48 @@ public class ViewJPanel extends javax.swing.JPanel {
             }
             
             if(seatCapacity != null){
-                counterNotMatched = counterNotMatched + 1;
-                if(c.getSeatCapacity()== Byte.parseByte(seatCapacity)){
-                   counterMatched = counterMatched + 1;
+                if(null != seatCapacityChoice)//                if("Seat Capacity".equals(seatCapacityChoice)){
+//                    coun
+//                }
+                switch (seatCapacityChoice) {
+                    case "Is less than" -> {
+                        if(c.getSeatCapacity() < Byte.parseByte(seatCapacity)){
+                            counterMatched = counterMatched + 1;
+                        }
+                    }
+                    case "Is less than or equal to" -> {
+                        if(c.getSeatCapacity() <= Byte.parseByte(seatCapacity)){
+                            counterMatched = counterMatched + 1;
+                        }
+                    }
+                    case "Is equal to" -> {
+                        if(c.getSeatCapacity() == Byte.parseByte(seatCapacity)){
+                            counterMatched = counterMatched + 1;
+                        }
+                    }
+                    case "Is not equal to" -> {
+                        if(c.getSeatCapacity() != Byte.parseByte(seatCapacity)){
+                            counterMatched = counterMatched + 1;
+                        }
+                    }
+                    case "Is greater than" -> {
+                        if(c.getSeatCapacity() > Byte.parseByte(seatCapacity)){
+                            counterMatched = counterMatched + 1;
+                        }
+                    }
+                    case "Is greater than or equal to" -> {
+                        if(c.getSeatCapacity() >= Byte.parseByte(seatCapacity)){
+                            counterMatched = counterMatched + 1;
+                        }
+                    }
+                    case "Is between" -> {
+                        if(c.getSeatCapacity() > Byte.parseByte(seatCapacity)){
+                            counterMatched = counterMatched + 1;
+                        }
+                    }
+                    default -> {
+                        counterNotMatched = counterNotMatched + 1;
+                    }
                 }
             }
             else{
