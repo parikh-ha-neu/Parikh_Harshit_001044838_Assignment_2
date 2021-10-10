@@ -54,7 +54,7 @@
                       <Component id="txtManufacturer" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtModelName" alignment="0" max="32767" attributes="0"/>
                       <Component id="btnSave" alignment="0" pref="104" max="32767" attributes="0"/>
-                      <Component id="txtManufactoryYear" max="32767" attributes="0"/>
+                      <Component id="txtManufactoryYear" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <Component id="checkboxMaintenanceExpired" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -77,12 +77,9 @@
                   <Component id="lblManufacturer" alignment="3" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblManufacturyYear" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="txtManufactoryYear" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblManufacturyYear" alignment="3" max="32767" attributes="0"/>
+                  <Component id="txtManufactoryYear" alignment="3" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -148,7 +145,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Manufactory Date"/>
+        <Property name="text" type="java.lang.String" value="Manufactory Year"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblManufacturer">
@@ -302,8 +299,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="com.toedter.calendar.JDateChooser" name="txtManufactoryYear">
-    </Component>
     <Component class="javax.swing.JLabel" name="lblMaintenanceExpired">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -315,6 +310,11 @@
     <Component class="javax.swing.JCheckBox" name="checkboxMaintenanceExpired">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkboxMaintenanceExpiredActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtManufactoryYear">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtManufactoryYearKeyReleased"/>
       </Events>
     </Component>
   </SubComponents>
