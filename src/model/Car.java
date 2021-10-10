@@ -22,6 +22,15 @@ public class Car {
     private String serialNumber;
     private String city;
     private Date lastUpdatedDate;
+    private boolean expired;
+
+    public boolean isExpired() {
+        return expired;
+    }
+
+    public void setExpired(boolean expired) {
+        this.expired = expired;
+    }
 
     public String getModelName() {
         return modelName;

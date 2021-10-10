@@ -35,6 +35,7 @@ public class CreateJFrame extends javax.swing.JPanel {
     public boolean isSubmit_ModelNumber = false;
     public boolean isSubmit_City = false;
     public boolean available = false;
+    public boolean expired = false;
     
     
     public CreateJFrame(CarHistory history) {
@@ -71,6 +72,8 @@ public class CreateJFrame extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         txtManufactoryYear = new com.toedter.calendar.JDateChooser();
+        lblMaintenanceExpired = new javax.swing.JLabel();
+        checkboxMaintenanceExpired = new javax.swing.JCheckBox();
 
         setBackground(new java.awt.Color(60, 86, 112));
 
@@ -189,6 +192,15 @@ public class CreateJFrame extends javax.swing.JPanel {
             .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
         );
 
+        lblMaintenanceExpired.setForeground(new java.awt.Color(255, 255, 255));
+        lblMaintenanceExpired.setText("Maintenance expired");
+
+        checkboxMaintenanceExpired.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkboxMaintenanceExpiredActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -197,7 +209,7 @@ public class CreateJFrame extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(341, 341, 341)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblManufacturyYear, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                    .addComponent(lblManufacturyYear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblAvailable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAutofill, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
@@ -209,18 +221,21 @@ public class CreateJFrame extends javax.swing.JPanel {
                             .addComponent(lblSerialNumber)
                             .addComponent(lblModelNumber)
                             .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(lblMaintenanceExpired, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(checkboxAvailable)
-                    .addComponent(txtCity)
-                    .addComponent(txtModelNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                    .addComponent(txtSerialNumber)
-                    .addComponent(txtSeatCapacity)
-                    .addComponent(txtManufacturer)
-                    .addComponent(txtModelName)
-                    .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                    .addComponent(txtManufactoryYear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(checkboxAvailable)
+                        .addComponent(txtCity)
+                        .addComponent(txtModelNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                        .addComponent(txtSerialNumber)
+                        .addComponent(txtSeatCapacity)
+                        .addComponent(txtManufacturer)
+                        .addComponent(txtModelName)
+                        .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                        .addComponent(txtManufactoryYear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(checkboxMaintenanceExpired))
                 .addGap(440, 440, 440))
         );
         layout.setVerticalGroup(
@@ -261,11 +276,18 @@ public class CreateJFrame extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAvailable, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
                     .addComponent(checkboxAvailable))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAutofill, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                    .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(411, 411, 411))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblMaintenanceExpired, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAutofill, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                            .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(383, 383, 383))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(checkboxMaintenanceExpired)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -359,6 +381,9 @@ public class CreateJFrame extends javax.swing.JPanel {
 
         ArrayList<Boolean> Available = new ArrayList<>();
         Collections.addAll(Available, true, false, true, true, false, true);
+        
+        ArrayList<Boolean> Expired = new ArrayList<>();
+        Collections.addAll(Expired, true, true, false, false, false, true);
 
         for (int i = 0; i<ModelName.size(); i++){
             Car c = history.addNewCar();
@@ -366,6 +391,7 @@ public class CreateJFrame extends javax.swing.JPanel {
             c.setModelNumber(ModelNumber.get(i));
             c.setManufactureryYear(ManufactoryYear.get(i));
             c.setAvailable(Available.get(i));
+            c.setExpired(Expired.get(i));
             c.setCarManufacturer(Manufacterer.get(i));
             c.setSeatCapacity(Byte.parseByte(SeatCapacity.get(i)));
             c.setSerialNumber(SerialNumber.get(i));
@@ -424,6 +450,12 @@ public class CreateJFrame extends javax.swing.JPanel {
             else{
                 c.setAvailable(false);
             }
+            if(checkboxMaintenanceExpired.isSelected()){
+                c.setExpired(true);
+            }
+            else{
+                c.setExpired(false);
+            }
             c.setCarManufacturer(carManufacturer);
             c.setSeatCapacity(seatCapacity);
             c.setSerialNumber(serialNumber);
@@ -440,6 +472,7 @@ public class CreateJFrame extends javax.swing.JPanel {
             txtSerialNumber.setText("");
             txtCity.setText("");
             checkboxAvailable.setSelected(false);
+            checkboxMaintenanceExpired.setSelected(false);
 
             txtModelName.setBackground(Color.white);
             txtModelNumber.setBackground(Color.white);
@@ -486,14 +519,20 @@ public class CreateJFrame extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_checkboxAvailableActionPerformed
 
+    private void checkboxMaintenanceExpiredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkboxMaintenanceExpiredActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkboxMaintenanceExpiredActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAutofill;
     private javax.swing.JButton btnSave;
     private javax.swing.JCheckBox checkboxAvailable;
+    private javax.swing.JCheckBox checkboxMaintenanceExpired;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblAvailable;
     private javax.swing.JLabel lblCity;
+    private javax.swing.JLabel lblMaintenanceExpired;
     private javax.swing.JLabel lblManufacturer;
     private javax.swing.JLabel lblManufacturyYear;
     private javax.swing.JLabel lblModelName;
